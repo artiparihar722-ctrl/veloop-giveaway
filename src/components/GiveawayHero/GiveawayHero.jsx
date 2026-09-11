@@ -1,70 +1,90 @@
-import { FaGift, FaArrowRight, FaStar } from "react-icons/fa";
+import { FiArrowRight, FiGift, FiShield, FiZap } from "react-icons/fi";
 import styles from "./GiveawayHero.module.css";
+import giftBoxImage from "../../assets/gift-box.png";
 
 function GiveawayHero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.backgroundGlow}></div>
+      <header className={styles.navbar}>
+        <div className={styles.brand}>
+          <div className={styles.brandMark}>VR</div>
 
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.badge}>
-            <FaStar />
-            <span>EXCLUSIVE GIVEAWAYS</span>
+          <div>
+            <strong>VELOOP</strong>
+            <span>REWARDS</span>
           </div>
+        </div>
+
+        <div className={styles.navBadge}>
+          <FiGift />
+          <span>EXCLUSIVE GIVEAWAYS</span>
+        </div>
+
+        <button className={styles.navButton}>Explore Rewards</button>
+      </header>
+
+      <div className={styles.heroContent}>
+        <div className={styles.heroText}>
+          <span className={styles.eyebrow}>
+            <FiGift />
+            EXCLUSIVE GIVEAWAY
+          </span>
 
           <h1>
             Giveaway
             <span> Rewards</span>
           </h1>
 
-          <p className={styles.subtitle}>
-            Complete tasks. Earn entries. Get a chance to win rewards you
-            actually want.
+          <p>
+            Complete eligible activities, collect entries and get a chance to
+            win exciting rewards from VELOOP Rewards.
           </p>
 
-          <p className={styles.description}>
-            Discover premium giveaways, participate with your earned rewards and
-            make every entry count.
-          </p>
+          <div className={styles.highlights}>
+            <div>
+              <FiShield />
+              <span>Fair & Secure</span>
+            </div>
+
+            <div>
+              <FiZap />
+              <span>Earn More Entries</span>
+            </div>
+
+            <div>
+              <FiGift />
+              <span>Premium Rewards</span>
+            </div>
+          </div>
 
           <div className={styles.actions}>
             <button className={styles.primaryButton}>
-              Join Now
-              <FaArrowRight />
+              Join Giveaway
+              <FiArrowRight />
             </button>
 
-            <button className={styles.secondaryButton}>Explore Rewards</button>
+            <button className={styles.secondaryButton}>View Rewards</button>
           </div>
 
-          <div className={styles.trustLine}>
-            <FaGift />
-            <span>
-              Fair participation • Reward transparency • Secure experience
-            </span>
+          <div className={styles.trustText}>
+            <span className={styles.dot}></span>
+            New rewards added regularly
           </div>
         </div>
 
-        <div className={styles.visual}>
-          <div className={`${styles.orbit} ${styles.orbitOne}`}></div>
-          <div className={`${styles.orbit} ${styles.orbitTwo}`}></div>
+        <div className={styles.heroVisual}>
+          <div className={styles.visualGlow}></div>
 
-          <div className={styles.giftCard}>
-            <div className={styles.giftIcon}>
-              <FaGift />
-            </div>
-
-            <span className={styles.giftLabel}>YOUR NEXT</span>
-            <strong>REWARD</strong>
-
-            <div className={`${styles.sparkle} ${styles.sparkleOne}`}>✦</div>
-            <div className={`${styles.sparkle} ${styles.sparkleTwo}`}>✦</div>
-            <div className={`${styles.sparkle} ${styles.sparkleThree}`}>✦</div>
+          <div className={styles.visualCard}>
+            <img src={giftBoxImage} alt="VELOOP premium giveaway reward" />
           </div>
 
           <div className={styles.floatingBadge}>
-            <FaStar />
-            <span>Premium Rewards</span>
+            <FiGift />
+            <div>
+              <strong>Exciting Rewards</strong>
+              <span>Waiting for you</span>
+            </div>
           </div>
         </div>
       </div>

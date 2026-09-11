@@ -1,0 +1,551 @@
+.section {
+  position: relative;
+  padding: 64px 0 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 18% 45%,
+      rgba(124, 58, 237, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 82% 45%,
+      rgba(37, 99, 235, 0.08),
+      transparent 30%
+    ),
+    #050816;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #c084fc;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.eyebrow svg {
+  font-size: 13px;
+}
+
+.sectionHeader h2 {
+  margin-top: 7px;
+  color: #ffffff;
+  font-size: 31px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.sectionHeader p {
+  margin-top: 7px;
+  color: rgba(226, 232, 240, 0.62);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.06);
+  color: #c084fc;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+.viewButton:hover {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(168, 85, 247, 0.7);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* =========================
+   CARDS PANEL
+========================= */
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(8, 10, 25, 0.8);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* =========================
+   GIVEAWAY CARD
+========================= */
+
+.card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 15px;
+  background: #0b1024;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.32);
+}
+
+/* =========================
+   ACCENT COLORS
+========================= */
+
+.card.purple {
+  --accent: #a855f7;
+  --accent-soft: rgba(168, 85, 247, 0.18);
+}
+
+.card.blue {
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.18);
+}
+
+.card.green {
+  --accent: #22c55e;
+  --accent-soft: rgba(34, 197, 94, 0.16);
+}
+
+.card.orange {
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.16);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 25%,
+    var(--accent-soft),
+    transparent 58%
+  );
+  opacity: 0.9;
+}
+
+/* =========================
+   RANK BADGE
+========================= */
+
+.rank {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 4px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+/* =========================
+   IMAGE AREA
+========================= */
+
+.imageArea {
+  position: relative;
+  z-index: 1;
+  height: 168px;
+  display: grid;
+  place-items: center;
+  padding: 25px 12px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prizeImage {
+  width: 88%;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 13px 20px rgba(0, 0, 0, 0.42));
+  transition: transform 0.3s ease;
+}
+
+.card:hover .prizeImage {
+  transform: scale(1.045);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 13px;
+}
+
+.cardContent h3 {
+  min-height: 21px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.cardContent > p {
+  min-height: 30px;
+  margin-top: 4px;
+  color: rgba(226, 232, 240, 0.55);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* =========================
+   META INFORMATION
+========================= */
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.meta > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.meta svg {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.meta span {
+  min-width: 0;
+  color: rgba(226, 232, 240, 0.48);
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.meta strong {
+  display: block;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* =========================
+   ENTRY COST
+========================= */
+
+.entryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.entryRow span {
+  color: rgba(226, 232, 240, 0.5);
+  font-size: 8px;
+}
+
+.entryRow strong {
+  color: #ffffff;
+  font-size: 9px;
+}
+
+/* =========================
+   JOIN BUTTON
+========================= */
+
+.joinButton {
+  width: 100%;
+  min-height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 7px 18px var(--accent-soft);
+  transition: 0.25s ease;
+}
+
+.joinButton:hover {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.joinButton svg {
+  font-size: 12px;
+}
+
+/* =========================
+   HOW TO PARTICIPATE
+========================= */
+
+.howTo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(139, 92, 246, 0.1),
+      transparent 48%
+    ),
+    rgba(8, 10, 25, 0.82);
+}
+
+.howHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.howIcon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #c084fc;
+}
+
+.howIcon svg {
+  font-size: 19px;
+}
+
+.howHeader h3 {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.howHeader p {
+  margin-top: 4px;
+  color: rgba(226, 232, 240, 0.5);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* =========================
+   PARTICIPATION STEPS
+========================= */
+
+.steps {
+  position: relative;
+  margin-top: 23px;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 16px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(168, 85, 247, 0.7),
+    rgba(59, 130, 246, 0.45),
+    rgba(34, 197, 94, 0.45)
+  );
+}
+
+.step {
+  position: relative;
+  display: flex;
+  gap: 11px;
+  margin-bottom: 19px;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step > span {
+  position: relative;
+  z-index: 2;
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(168, 85, 247, 0.42);
+  border-radius: 50%;
+  background: #10132b;
+  color: #c084fc;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.step h4 {
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+.step p {
+  margin-top: 3px;
+  color: rgba(226, 232, 240, 0.48);
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+/* =========================
+   RULES BUTTON
+========================= */
+
+.rulesButton {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 0 10px;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 9px;
+  background: rgba(139, 92, 246, 0.05);
+  color: #c084fc;
+  font-size: 9px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.rulesButton:hover {
+  background: rgba(139, 92, 246, 0.12);
+  border-color: rgba(168, 85, 247, 0.7);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .howTo {
+    min-height: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .section {
+    padding: 50px 0 65px;
+  }
+
+  .container {
+    width: min(100% - 30px, 1180px);
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sectionHeader h2 {
+    font-size: 27px;
+  }
+
+  .viewButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .imageArea {
+    height: 210px;
+  }
+
+  .prizeImage {
+    height: 175px;
+  }
+
+  .howTo {
+    padding: 18px;
+  }
+}
