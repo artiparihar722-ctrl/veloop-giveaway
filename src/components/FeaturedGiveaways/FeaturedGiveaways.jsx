@@ -1,9 +1,14 @@
 import { FiArrowRight, FiClock, FiGift, FiUsers } from "react-icons/fi";
+
 import styles from "./FeaturedGiveaways.module.css";
+
 import iphoneImage from "../../assets/iphone.png";
 import appleWatchImage from "../../assets/apple-watch.png";
 import airpodsImage from "../../assets/airpods.png";
 import amazonVoucherImage from "../../assets/amazon-voucher.png";
+import amazonVoucher500Image from "../../assets/amazon-voucher-500.png";
+import voucher20Image from "../../assets/voucher-20.png";
+
 const giveaways = [
   {
     rank: "1st Prize",
@@ -44,6 +49,26 @@ const giveaways = [
     entry: "500 VEs",
     accent: "orange",
     image: amazonVoucherImage,
+  },
+  {
+    rank: "Special Reward",
+    title: "₹500 Amazon Voucher",
+    description: "₹500 Amazon Shopping Voucher",
+    participants: "980+",
+    time: "6d : 04h : 40m",
+    entry: "300 VEs",
+    accent: "purple",
+    image: amazonVoucher500Image,
+  },
+  {
+    rank: "Special Voucher",
+    title: "₹20 Voucher",
+    description: "₹20 Reward Voucher",
+    participants: "1.6K+",
+    time: "4d : 12h : 10m",
+    entry: "2,000 Tokens",
+    accent: "blue",
+    image: voucher20Image,
   },
 ];
 

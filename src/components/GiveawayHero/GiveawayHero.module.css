@@ -55,37 +55,40 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* =========================
+   BRAND / LOGO
+========================= */
+
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
 }
 
 .brandMark {
-  width: 42px;
-  height: 42px;
-
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
 
-  border: 1px solid rgba(167, 139, 250, 0.35);
+  border: 1px solid rgba(167, 139, 250, 0.5);
   border-radius: 12px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(139, 92, 246, 0.28),
-      rgba(37, 99, 235, 0.2)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.38),
+    rgba(37, 99, 235, 0.24)
+  );
 
   color: #ffffff;
   font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 10px 25px rgba(0, 0, 0, 0.2);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 18px rgba(124, 58, 237, 0.16),
+    0 10px 28px rgba(0, 0, 0, 0.24);
 }
 
 .brand strong,
@@ -96,15 +99,18 @@
 .brand strong {
   color: #ffffff;
   font-size: 18px;
-  letter-spacing: 0.8px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  line-height: 1;
 }
 
 .brand span {
-  margin-top: 2px;
+  margin-top: 4px;
   color: #a78bfa;
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  letter-spacing: 2.8px;
+  line-height: 1;
 }
 
 .navBadge {
@@ -382,8 +388,6 @@
   place-items: center;
 }
 
-/* Framed reward area */
-
 .visualCard {
   position: relative;
   z-index: 2;
@@ -405,12 +409,13 @@
   animation: floatReward 5s ease-in-out infinite;
 }
 
+/* Main illustration glow */
 .visualCard::before {
   content: "";
 
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
 
   top: 50%;
   left: 50%;
@@ -419,30 +424,48 @@
 
   border-radius: 50%;
 
-  background: rgba(139, 92, 246, 0.15);
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.2) 0%,
+      rgba(99, 102, 241, 0.1) 45%,
+      transparent 72%
+    );
 
-  filter: blur(70px);
+  filter: blur(65px);
+  pointer-events: none;
 }
 
-
-
+/* Reward illustration */
 .visualCard img {
   position: relative;
   z-index: 2;
 
-  width: min(100%, 560px);
+  width: min(100%, 520px);
   height: auto;
 
   object-fit: contain;
 
-  transform: scale(1.2);
+  transform: scale(1.05);
 
   filter:
-    drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 22px rgba(139, 92, 246, 0.12));
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.visualCard:hover img {
+  transform: scale(1.08);
+
+  filter:
+    drop-shadow(0 28px 40px rgba(0, 0, 0, 0.48))
+    drop-shadow(0 0 28px rgba(139, 92, 246, 0.18));
 }
 
 /* Background glow */
-
 .visualGlow {
   position: absolute;
 
@@ -451,7 +474,13 @@
 
   border-radius: 50%;
 
-  background: rgba(124, 58, 237, 0.16);
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.18) 0%,
+      rgba(99, 102, 241, 0.08) 45%,
+      transparent 72%
+    );
 
   filter: blur(90px);
 
@@ -544,16 +573,14 @@
 
   .heroContent {
     grid-template-columns: 1fr;
-
+    min-height: auto;
     gap: 20px;
-
-    padding: 65px 0 75px;
+    padding: 65px 0 55px;
   }
 
   .heroText {
     max-width: 700px;
     margin: 0 auto;
-
     text-align: center;
   }
 
@@ -573,11 +600,26 @@
   }
 
   .heroVisual {
-    min-height: 430px;
+    min-height: 380px;
   }
 
   .visualCard {
-    max-width: 520px;
+    max-width: 500px;
+    min-height: 360px;
+  }
+
+  .visualCard img {
+    width: min(100%, 470px);
+    transform: scale(1.03);
+  }
+
+  .visualCard:hover img {
+    transform: scale(1.05);
+  }
+
+  .visualGlow {
+    width: 360px;
+    height: 360px;
   }
 }
 
@@ -586,19 +628,29 @@
 ========================= */
 
 @media (max-width: 576px) {
+  .hero {
+    min-height: auto;
+  }
+
   .navbar,
   .heroContent {
     width: calc(100% - 30px);
   }
 
   .navbar {
-    min-height: 70px;
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 9px;
   }
 
   .brandMark {
     width: 38px;
     height: 38px;
     border-radius: 10px;
+    font-size: 12px;
   }
 
   .brand strong {
@@ -607,6 +659,7 @@
 
   .brand span {
     font-size: 7px;
+    letter-spacing: 2px;
   }
 
   .navButton {
@@ -615,63 +668,113 @@
   }
 
   .heroContent {
-    padding-top: 45px;
-    padding-bottom: 60px;
+    min-height: auto;
+    gap: 8px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+
+  .eyebrow {
+    padding: 7px 11px;
+    font-size: 9px;
   }
 
   .hero h1 {
-    margin-top: 21px;
-
-    font-size: 48px;
-    letter-spacing: -2.5px;
+    margin-top: 19px;
+    font-size: 46px;
+    line-height: 0.99;
+    letter-spacing: -2.4px;
   }
 
   .heroText > p {
+    margin-top: 20px;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .highlights {
     justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+  }
+
+  .highlights div {
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+
+  .highlights svg {
+    font-size: 13px;
   }
 
   .actions {
     flex-direction: column;
+    gap: 9px;
+    margin-top: 24px;
   }
 
   .primaryButton,
   .secondaryButton {
     width: 100%;
+    min-height: 46px;
     justify-content: center;
   }
 
+  .trustText {
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 9px;
+  }
+
   .heroVisual {
-    min-height: 330px;
+    min-height: 275px;
+    margin-top: 0;
   }
 
   .visualCard {
-    min-height: 300px;
-
-    
-
-  }
-
-  .visualCard::after {
-    inset: 10px;
-    border-radius: 15px;
+    width: 100%;
+    min-height: 250px;
   }
 
   .visualCard img {
-    width: min(100%, 290px);
+    width: min(100%, 235px);
+    transform: scale(1.03);
+  }
+
+  .visualCard:hover img {
+    transform: scale(1.05);
+  }
+
+  .visualCard::before {
+    width: 210px;
+    height: 210px;
+    filter: blur(58px);
   }
 
   .visualGlow {
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
+    filter: blur(72px);
   }
 
   .floatingBadge {
-    right: -2px;
-    bottom: 18px;
+    right: 0;
+    bottom: 8px;
+    padding: 9px 11px;
+    gap: 8px;
+  }
+
+  .floatingBadge > svg {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+  }
+
+  .floatingBadge strong {
+    font-size: 9px;
+  }
+
+  .floatingBadge span {
+    font-size: 8px;
   }
 }

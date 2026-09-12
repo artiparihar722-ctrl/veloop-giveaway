@@ -92,7 +92,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 16px;
-  align-items: stretch;
+  align-items: start;
 }
 
 /* =========================
@@ -101,7 +101,7 @@
 
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -125,6 +125,11 @@
   border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 15px;
   background: #0b1024;
+  box-shadow:
+  0 12px 28px rgba(0, 0, 0, 0.25),
+  0 0 18px var(--card-glow),
+  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -133,8 +138,12 @@
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.32);
+  border-color: var(--accent);
+
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.32),
+    0 0 28px var(--card-glow),
+    0 0 8px var(--card-glow);
 }
 
 /* =========================
@@ -144,21 +153,25 @@
 .card.purple {
   --accent: #a855f7;
   --accent-soft: rgba(168, 85, 247, 0.18);
+  --card-glow: rgba(168, 85, 247, 0.18);
 }
 
 .card.blue {
   --accent: #3b82f6;
   --accent-soft: rgba(59, 130, 246, 0.18);
+  --card-glow: rgba(59, 130, 246, 0.18);
 }
 
 .card.green {
   --accent: #22c55e;
   --accent-soft: rgba(34, 197, 94, 0.16);
+  --card-glow: rgba(34, 197, 94, 0.16);
 }
 
 .card.orange {
   --accent: #f97316;
   --accent-soft: rgba(249, 115, 22, 0.16);
+  --card-glow: rgba(249, 115, 22, 0.16);
 }
 
 .card::before {
@@ -345,19 +358,18 @@
 ========================= */
 
 .howTo {
+  background: rgba(10, 18, 45, 0.92);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  border-radius: 20px;
+  padding: 24px 22px;
+  height: auto;
+  align-self: start;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 20px;
-  background:
-    radial-gradient(
-      circle at 50% 10%,
-      rgba(139, 92, 246, 0.1),
-      transparent 48%
-    ),
-    rgba(8, 10, 25, 0.82);
+  position: relative;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .howHeader {
@@ -383,15 +395,15 @@
 
 .howHeader h3 {
   color: #ffffff;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.25;
   font-weight: 800;
 }
 
 .howHeader p {
-  margin-top: 4px;
-  color: rgba(226, 232, 240, 0.5);
-  font-size: 9px;
+  margin-top: 5px;
+  color: rgba(226, 232, 240, 0.55);
+  font-size: 10px;
   line-height: 1.5;
 }
 
@@ -401,7 +413,7 @@
 
 .steps {
   position: relative;
-  margin-top: 23px;
+  margin-top: 22px;
 }
 
 .steps::before {
@@ -423,7 +435,7 @@
   position: relative;
   display: flex;
   gap: 11px;
-  margin-bottom: 19px;
+  margin-bottom: 18px;
 }
 
 .step:last-child {
@@ -448,16 +460,16 @@
 
 .step h4 {
   color: #ffffff;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.4;
   font-weight: 800;
 }
 
 .step p {
-  margin-top: 3px;
-  color: rgba(226, 232, 240, 0.48);
-  font-size: 8px;
-  line-height: 1.5;
+  margin-top: 4px;
+  color: rgba(226, 232, 240, 0.5);
+  font-size: 9px;
+  line-height: 1.55;
 }
 
 /* =========================
@@ -466,12 +478,12 @@
 
 .rulesButton {
   width: 100%;
-  min-height: 38px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: auto;
+  margin-top: 22px;
   padding: 0 10px;
   border: 1px solid rgba(168, 85, 247, 0.4);
   border-radius: 9px;
@@ -485,6 +497,10 @@
 .rulesButton:hover {
   background: rgba(139, 92, 246, 0.12);
   border-color: rgba(168, 85, 247, 0.7);
+}
+
+.rulesButton svg {
+  font-size: 11px;
 }
 
 /* =========================
@@ -501,7 +517,9 @@
   }
 
   .howTo {
-    min-height: auto;
+    height: auto;
+    min-height: 0;
+    position: static;
   }
 }
 
@@ -546,6 +564,26 @@
   }
 
   .howTo {
-    padding: 18px;
+    padding: 20px 18px;
+  }
+
+  .howHeader h3 {
+    font-size: 17px;
+  }
+
+  .howHeader p {
+    font-size: 9px;
+  }
+
+  .step {
+    margin-bottom: 19px;
+  }
+
+  .step h4 {
+    font-size: 10px;
+  }
+
+  .step p {
+    font-size: 8px;
   }
 }
