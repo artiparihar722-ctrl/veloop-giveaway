@@ -2,6 +2,44 @@
   min-height: 100vh;
 }
 
+html,
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(76, 45, 145, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #100b2b 0%,
+      #120d32 50%,
+      #0d0924 100%
+    );
+}
+
+body {
+  color: #ffffff;
+}
+
 main {
   min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 5%,
+      rgba(76, 45, 145, 0.16),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #100b2b 0%,
+      #120d32 50%,
+      #0d0924 100%
+    );
+}
+
+main > section {
+  background-color: transparent !important;
 }

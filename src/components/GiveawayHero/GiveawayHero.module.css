@@ -1,232 +1,336 @@
 .hero {
   position: relative;
-  min-height: 720px;
+  min-height: 780px;
   overflow: hidden;
+  color: #fff;
+
   background:
-    radial-gradient(circle at 82% 42%, rgba(124, 58, 237, 0.16), transparent 28%),
-    radial-gradient(circle at 18% 20%, rgba(37, 99, 235, 0.1), transparent 30%),
-    #050816;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    radial-gradient(
+      circle at 70% 48%,
+      rgba(104, 45, 255, 0.3),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #10082d 0%,
+      #130b38 50%,
+      #0d0827 100%
+    );
 }
 
-/* Soft background details */
-.hero::before {
-  content: "";
+.backgroundGlow {
   position: absolute;
-  width: 620px;
-  height: 620px;
-  right: -280px;
-  top: 40px;
+  width: 650px;
+  height: 650px;
+  right: 5%;
+  top: 130px;
   border-radius: 50%;
-  background: rgba(124, 58, 237, 0.08);
-  filter: blur(100px);
+
+  background: radial-gradient(
+    circle,
+    rgba(111, 44, 255, 0.38),
+    transparent 70%
+  );
+
+  filter: blur(35px);
   pointer-events: none;
 }
 
-.hero::after {
-  content: "";
+.backgroundGlowTwo {
   position: absolute;
-  width: 360px;
-  height: 360px;
-  left: -220px;
-  bottom: -180px;
+  width: 500px;
+  height: 500px;
+  left: -200px;
+  bottom: -200px;
   border-radius: 50%;
-  background: rgba(37, 99, 235, 0.07);
-  filter: blur(90px);
+  background: rgba(67, 31, 180, 0.18);
+  filter: blur(80px);
+}
+
+.backgroundGrid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
   pointer-events: none;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
 .navbar {
   position: relative;
-  z-index: 5;
-  width: min(1180px, calc(100% - 48px));
-  min-height: 82px;
-  margin: 0 auto;
+  z-index: 30;
+
+  min-height: 78px;
+  width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 5.5%;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(10, 7, 35, 0.45);
+  backdrop-filter: blur(18px);
 }
 
-/* =========================
-   BRAND / LOGO
-========================= */
-
-.brand {
+.logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 180px;
 }
 
-.brandMark {
-  width: 44px;
-  height: 44px;
+.logoMark {
+  width: 36px;
+  height: 36px;
+
   display: grid;
   place-items: center;
 
-  border: 1px solid rgba(167, 139, 250, 0.5);
-  border-radius: 12px;
-
-  background: linear-gradient(
-    145deg,
-    rgba(139, 92, 246, 0.38),
-    rgba(37, 99, 235, 0.24)
-  );
-
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 0 18px rgba(124, 58, 237, 0.16),
-    0 10px 28px rgba(0, 0, 0, 0.24);
-}
-
-.brand strong,
-.brand span {
-  display: block;
-}
-
-.brand strong {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.9px;
-  line-height: 1;
-}
-
-.brand span {
-  margin-top: 4px;
-  color: #a78bfa;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 2.8px;
-  line-height: 1;
-}
-
-.navBadge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 9px 15px;
-
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 999px;
-
-  background: rgba(109, 40, 217, 0.07);
-
-  color: #c084fc;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.9px;
-}
-
-.navBadge svg {
-  font-size: 13px;
-}
-
-.navButton {
-  padding: 10px 17px;
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 10px;
 
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    135deg,
+    #8b5cff,
+    #4930d8
+  );
+
+  box-shadow:
+    0 8px 28px rgba(108, 65, 255, 0.35);
+}
+
+.logoMark span {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoText strong {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
+
+.logoText small {
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+}
+
+.navLinks a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.navLinks a:hover {
+  color: #fff;
+}
+
+.activeLink {
+  color: #fff !important;
+
+  padding: 10px 17px !important;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #7957ff,
+    #4c38d7
+  );
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 13px;
+  min-width: 220px;
+}
+
+.balance {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.07);
 
   font-size: 12px;
-  font-weight: 600;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
 }
 
-.navButton:hover {
-  transform: translateY(-1px);
-  border-color: rgba(167, 139, 250, 0.45);
-  background: rgba(139, 92, 246, 0.08);
+.coin {
+  color: #ffd84d;
 }
 
-/* =========================
-   HERO CONTENT
-========================= */
+.notification,
+.profile {
+  border: 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
 
-.heroContent {
+.notification {
   position: relative;
-  z-index: 2;
 
-  width: min(1180px, calc(100% - 48px));
-  min-height: 635px;
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  font-size: 17px;
+}
+
+.notificationDot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: #ff4fa3;
+}
+
+.profile {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 4px 9px 4px 5px;
+
+  border-radius: 999px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #9c7bff,
+    #5a42e6
+  );
+
+  font-weight: 800;
+}
+
+/* HERO */
+
+.heroContainer {
+  position: relative;
+  z-index: 5;
+
+  width: min(1380px, 92%);
+  min-height: 700px;
+
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+
+  grid-template-columns:
+    0.82fr
+    1.18fr;
+
   align-items: center;
-  gap: 50px;
+
+  gap: 10px;
 }
 
 .heroText {
-  max-width: 570px;
+  position: relative;
+  z-index: 15;
+  padding: 50px 0 80px;
 }
 
 .eyebrow {
-  width: fit-content;
-
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
 
   padding: 8px 13px;
 
-  border: 1px solid rgba(168, 85, 247, 0.32);
+  border: 1px solid rgba(151, 116, 255, 0.45);
   border-radius: 999px;
 
-  background: rgba(109, 40, 217, 0.07);
+  background: rgba(98, 61, 224, 0.15);
 
-  color: #c084fc;
+  color: #d7caff;
 
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.1px;
-}
-
-.eyebrow svg {
-  font-size: 13px;
-}
-
-/* Main heading */
-
-.hero h1 {
-  margin-top: 24px;
-
-  color: #ffffff;
-
-  font-size: clamp(50px, 6vw, 76px);
-  line-height: 0.98;
-  letter-spacing: -3.5px;
   font-weight: 800;
+  letter-spacing: 1.5px;
 }
 
-.hero h1 span {
-  display: block;
+.eyebrow span {
+  color: #ff70c8;
+}
 
+.heroText h1 {
+  margin: 22px 0 18px;
+
+  font-size: clamp(42px, 4.5vw, 70px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+
+  font-weight: 900;
+}
+
+.whiteText {
+  color: #fff;
+}
+
+.gradientText {
   background: linear-gradient(
     90deg,
-    #ffffff 0%,
-    #ddd6fe 45%,
-    #a78bfa 100%
+    #ff5ccf,
+    #a879ff 45%,
+    #55d8ff
   );
 
   -webkit-background-clip: text;
@@ -234,547 +338,1191 @@
   color: transparent;
 }
 
-.heroText > p {
-  max-width: 535px;
-  margin-top: 24px;
+.description {
+  max-width: 540px;
 
-  color: rgba(226, 232, 240, 0.68);
+  margin-bottom: 25px;
 
-  font-size: 15px;
-  line-height: 1.8;
-}
+  color: rgba(255, 255, 255, 0.68);
 
-/* =========================
-   BENEFITS
-========================= */
-
-.highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 25px;
-}
-
-.highlights div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  padding: 9px 12px;
-
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  border-radius: 9px;
-
-  background: rgba(255, 255, 255, 0.025);
-
-  color: rgba(255, 255, 255, 0.74);
-
-  font-size: 10px;
-  font-weight: 500;
-}
-
-.highlights svg {
-  color: #a78bfa;
   font-size: 14px;
+  line-height: 1.7;
 }
-
-/* =========================
-   BUTTONS
-========================= */
 
 .actions {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 29px;
 }
 
-.primaryButton,
-.secondaryButton {
-  min-height: 47px;
-  padding: 0 20px;
+.joinButton,
+.videoButton {
+  height: 48px;
 
-  border-radius: 10px;
-
-  font-size: 12px;
-  font-weight: 700;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-.primaryButton {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
-  border: none;
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.joinButton {
+  border: 0;
+  color: #fff;
 
   background: linear-gradient(
-    135deg,
-    #8b5cf6,
-    #6366f1
+    90deg,
+    #ff42bd,
+    #7964ff,
+    #42d9ff
   );
 
-  color: #ffffff;
-
   box-shadow:
-    0 12px 30px rgba(99, 70, 220, 0.25);
+    0 10px 28px rgba(157, 64, 255, 0.3);
 }
 
-.primaryButton:hover {
-  transform: translateY(-2px);
+.videoButton {
+  border: 1px solid rgba(255, 255, 255, 0.2);
 
-  box-shadow:
-    0 16px 35px rgba(99, 70, 220, 0.35);
-}
+  color: #fff;
 
-.primaryButton svg {
-  font-size: 15px;
-}
-
-.secondaryButton {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  background: rgba(255, 255, 255, 0.025);
-
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.secondaryButton:hover {
-  transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* =========================
-   TRUST
-========================= */
+.playIcon {
+  width: 26px;
+  height: 26px;
 
-.trustText {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  margin-top: 17px;
-
-  color: rgba(226, 232, 240, 0.42);
-
-  font-size: 10px;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
+  display: grid;
+  place-items: center;
 
   border-radius: 50%;
 
-  background: #34d399;
-
-  box-shadow: 0 0 9px rgba(52, 211, 153, 0.45);
+  background: rgba(255, 255, 255, 0.13);
 }
 
-/* =========================
-   REWARD VISUAL
-========================= */
+.trustPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 25px;
+}
 
-.heroVisual {
+.trustPoints div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.trustPoints svg {
+  color: #78dcff;
+  font-size: 12px;
+}
+
+/* =========================================================
+   REWARD SCENE
+========================================================= */
+
+.rewardScene {
   position: relative;
 
-  min-height: 500px;
+  width: 100%;
+  height: 650px;
 
-  display: grid;
-  place-items: center;
+  perspective: 1400px;
+
+  transform-style: preserve-3d;
 }
 
-.visualCard {
-  position: relative;
-  z-index: 2;
-
-  width: min(100%, 560px);
-  min-height: 430px;
-
-  display: grid;
-  place-items: center;
-
-  background: transparent;
-  border: none;
-  border-radius: 0;
-
-  box-shadow: none;
-
-  overflow: visible;
-
-  animation: floatReward 5s ease-in-out infinite;
-}
-
-/* Main illustration glow */
-.visualCard::before {
-  content: "";
-
+.sceneGlow {
   position: absolute;
-  width: 300px;
-  height: 300px;
 
-  top: 50%;
   left: 50%;
+  top: 50%;
+
+  width: 650px;
+  height: 500px;
 
   transform: translate(-50%, -50%);
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(139, 92, 246, 0.2) 0%,
-      rgba(99, 102, 241, 0.1) 45%,
-      transparent 72%
-    );
+  background: radial-gradient(
+    ellipse,
+    rgba(151, 55, 255, 0.55),
+    rgba(71, 31, 190, 0.18) 45%,
+    transparent 73%
+  );
 
-  filter: blur(65px);
-  pointer-events: none;
+  filter: blur(22px);
 }
 
-/* Reward illustration */
-.visualCard img {
-  position: relative;
-  z-index: 2;
+.rewardFloor {
+  position: absolute;
 
-  width: min(100%, 520px);
-  height: auto;
+  left: 50%;
+  bottom: 70px;
 
-  object-fit: contain;
+  width: 680px;
+  height: 160px;
 
-  transform: scale(1.05);
+  transform:
+    translateX(-50%)
+    rotateX(65deg);
 
-  filter:
-    drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45))
-    drop-shadow(0 0 22px rgba(139, 92, 246, 0.12));
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(201, 76, 255, 0.5),
+      transparent 70%
+    );
+
+  box-shadow:
+    0 0 40px rgba(163, 69, 255, 0.5);
+}
+
+/* COMMON IMAGE */
+
+.rewardItem {
+  position: absolute;
+
+  transform-style: preserve-3d;
 
   transition:
     transform 0.35s ease,
     filter 0.35s ease;
 }
 
-.visualCard:hover img {
-  transform: scale(1.08);
+.rewardItem img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
 
   filter:
-    drop-shadow(0 28px 40px rgba(0, 0, 0, 0.48))
-    drop-shadow(0 0 28px rgba(139, 92, 246, 0.18));
+    drop-shadow(0 25px 22px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 0 18px rgba(123, 62, 255, 0.22));
 }
 
-/* Background glow */
-.visualGlow {
+/* PHONE - LARGE + BEHIND */
+
+.phone {
+  z-index: 2;
+
+  width: 205px;
+  height: 290px;
+
+  left: 7%;
+  top: 105px;
+
+  transform:
+    rotate(-10deg)
+    rotateY(12deg)
+    translateZ(60px);
+
+  animation: phoneFloat 4.5s ease-in-out infinite;
+}
+
+.phone:hover {
+  transform:
+    rotate(-5deg)
+    rotateY(-8deg)
+    translateZ(110px)
+    scale(1.08);
+}
+
+/* WATCH - LARGE + BEHIND */
+
+.watch {
+  z-index: 2;
+
+  width: 220px;
+  height: 250px;
+
+  right: 11%;
+  top: 92px;
+
+  transform:
+    rotate(8deg)
+    rotateY(-12deg)
+    translateZ(55px);
+
+  animation: watchFloat 4.8s ease-in-out infinite;
+}
+
+.watch:hover {
+  transform:
+    rotate(4deg)
+    rotateY(8deg)
+    translateZ(110px)
+    scale(1.08);
+}
+
+/* AIRPODS - BEHIND */
+
+.airpods {
+  z-index: 3;
+
+  width: 200px;
+  height: 170px;
+
+  right: 4%;
+  top: 300px;
+
+  transform:
+    rotate(6deg)
+    rotateY(-10deg)
+    translateZ(65px);
+
+  animation: airpodFloat 4.2s ease-in-out infinite;
+}
+
+.airpods:hover {
+  transform:
+    rotate(3deg)
+    translateZ(110px)
+    scale(1.08);
+}
+
+/* =========================================================
+   BIG MAIN GIFT
+========================================================= */
+
+.mainGift {
   position: absolute;
 
-  width: 420px;
-  height: 420px;
+  z-index: 10;
+
+  left: 50%;
+  top: 215px;
+
+  width: 430px;
+  height: 430px;
+
+  transform:
+    translateX(-50%)
+    translateZ(190px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+
+  cursor: pointer;
+
+  animation: giftFloat 4s ease-in-out infinite;
+}
+
+.mainGift img {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 38px 30px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 32px rgba(178, 63, 255, 0.7));
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.mainGift:hover {
+  animation-play-state: paused;
+
+  transform:
+    translateX(-50%)
+    translateZ(250px)
+    scale(1.08);
+}
+
+.mainGift:hover img {
+  transform:
+    rotateY(-8deg)
+    rotateX(5deg);
+
+  filter:
+    drop-shadow(0 48px 36px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 50px rgba(194, 70, 255, 0.85));
+}
+
+.giftGlow {
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(124, 58, 237, 0.18) 0%,
-      rgba(99, 102, 241, 0.08) 45%,
-      transparent 72%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(195, 65, 255, 0.55),
+    transparent 68%
+  );
 
-  filter: blur(90px);
+  filter: blur(25px);
 
-  pointer-events: none;
+  z-index: 1;
 }
 
-/* Small reward label */
-
-.floatingBadge {
+.giftShadow {
   position: absolute;
 
-  right: -5px;
-  bottom: 45px;
+  bottom: 25px;
 
+  width: 300px;
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.48);
+
+  filter: blur(20px);
+
+  z-index: 0;
+}
+
+/* =========================================================
+   VELOOP BAG
+========================================================= */
+
+.veloopBag {
   z-index: 5;
+
+  left: 3%;
+  bottom: 90px;
+
+  width: 155px;
+  height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px 10px 18px 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #a16cff,
+      #6838dd 55%,
+      #38198f
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 30px 35px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(117, 61, 255, 0.35);
+
+  transform:
+    rotate(-8deg)
+    rotateY(10deg)
+    translateZ(110px);
+
+  animation: bagFloat 4.7s ease-in-out infinite;
+}
+
+.bagHandle {
+  position: absolute;
+
+  width: 82px;
+  height: 65px;
+
+  left: 50%;
+  top: -52px;
+
+  transform: translateX(-50%);
+
+  border: 5px solid #bd99ff;
+  border-bottom: 0;
+
+  border-radius: 50px 50px 0 0;
+}
+
+.bagLogo {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.veloopBag strong {
+  margin-top: 8px;
+
+  font-size: 17px;
+  letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   VELOOP CARD
+========================================================= */
+
+.veloopCard {
+  position: absolute;
+
+  z-index: 11;
+
+  left: 29%;
+  bottom: 58px;
+
+  width: 175px;
+  height: 82px;
 
   display: flex;
   align-items: center;
   gap: 10px;
 
-  padding: 11px 14px;
+  padding: 12px 17px;
 
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: rgba(8, 10, 26, 0.92);
+  background:
+    linear-gradient(
+      135deg,
+      #f09aff,
+      #8449ed
+    );
 
-  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.35);
+    0 28px 30px rgba(0, 0, 0, 0.42),
+    0 0 28px rgba(205, 80, 255, 0.4);
+
+  transform:
+    rotate(-9deg)
+    rotateY(-12deg)
+    translateZ(170px);
+
+  transition: 0.35s ease;
 }
 
-.floatingBadge > svg {
-  width: 33px;
-  height: 33px;
-
-  padding: 8px;
-
-  border-radius: 9px;
-
-  background: rgba(139, 92, 246, 0.13);
-
-  color: #c084fc;
+.veloopCard:hover {
+  transform:
+    rotate(-4deg)
+    rotateY(8deg)
+    translateZ(220px)
+    scale(1.08);
 }
 
-.floatingBadge strong,
-.floatingBadge span {
+.cardV {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.cardText {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   AMAZON - ONE ONLY
+========================================================= */
+
+.amazonVoucher {
+  position: absolute;
+
+  z-index: 7;
+
+  right: 12%;
+  bottom: 55px;
+
+  width: 190px;
+  height: 115px;
+
+  transform:
+    rotate(7deg)
+    rotateY(-12deg)
+    translateZ(130px);
+
+  animation: voucherFloat 4.5s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 28px 25px rgba(0, 0, 0, 0.45));
+}
+
+.amazonVoucher img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   DOLLAR COINS
+========================================================= */
+
+.dollarCoin {
+  position: absolute;
+
+  z-index: 8;
+
+  width: 72px;
+  height: 72px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #9a5700;
+
+  font-size: 34px;
+  font-weight: 900;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      #fff5a5,
+      #ffd83f 40%,
+      #f3a700 72%,
+      #c56c00
+    );
+
+  border: 4px solid #ffdf61;
+
+  box-shadow:
+    inset 0 -6px 0 rgba(170, 90, 0, 0.28),
+    0 20px 22px rgba(0, 0, 0, 0.35),
+    0 0 22px rgba(255, 202, 49, 0.5);
+
+  transform-style: preserve-3d;
+}
+
+.coinOne {
+  z-index: 4;
+
+  left: 23%;
+  top: 55px;
+
+  transform:
+    rotate(-15deg)
+    translateZ(130px);
+
+  animation: coinFloatOne 3.8s ease-in-out infinite;
+}
+
+.coinTwo {
+  z-index: 4;
+
+  left: 48%;
+  top: 42px;
+
+  transform:
+    rotate(18deg)
+    translateZ(140px);
+
+  animation: coinFloatTwo 4.1s ease-in-out infinite;
+}
+
+.coinThree {
+  z-index: 9;
+
+  right: 25%;
+  top: 255px;
+
+  transform:
+    rotate(-10deg)
+    translateZ(160px);
+
+  animation: coinFloatThree 3.7s ease-in-out infinite;
+}
+
+.coinFour {
+  z-index: 9;
+
+  left: 20%;
+  bottom: 52px;
+
+  width: 64px;
+  height: 64px;
+
+  font-size: 30px;
+
+  transform:
+    rotate(12deg)
+    translateZ(150px);
+
+  animation: coinFloatFour 4.4s ease-in-out infinite;
+}
+
+/* =========================================================
+   YOUR ENTRIES
+   NOT OVER AIRPODS
+========================================================= */
+
+.entryCard {
+  position: absolute;
+
+  z-index: 14;
+
+  right: 0;
+
+  top: 440px;
+
+  width: 190px;
+  min-height: 112px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(125, 120, 255, 0.65);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 19, 82, 0.96),
+      rgba(15, 11, 53, 0.94)
+    );
+
+  box-shadow:
+    0 28px 38px rgba(0, 0, 0, 0.35),
+    0 0 22px rgba(96, 68, 255, 0.2);
+
+  backdrop-filter: blur(16px);
+
+  transform:
+    translateZ(200px)
+    rotateY(-3deg);
+
+  transition: 0.3s ease;
+}
+
+.entryCard:hover {
+  transform:
+    translateZ(240px)
+    scale(1.05);
+}
+
+.entryCard > span {
   display: block;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 13px;
 }
 
-.floatingBadge strong {
-  color: #ffffff;
-  font-size: 10px;
+.entryValue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 12px;
 }
 
-.floatingBadge span {
-  margin-top: 3px;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 9px;
+.entryCoin {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: #9a5700;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff28a,
+      #ffcb25 65%,
+      #db8700
+    );
+
+  font-weight: 900;
 }
 
-/* =========================
-   ANIMATION
-========================= */
+.entryValue strong {
+  font-size: 27px;
+}
 
-@keyframes floatReward {
+.entryValue svg {
+  margin-left: auto;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================================
+   SPARKS
+========================================================= */
+
+.spark {
+  position: absolute;
+
+  z-index: 5;
+
+  color: #fff;
+
+  font-size: 23px;
+
+  text-shadow:
+    0 0 18px #b87cff;
+
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+.sparkOne {
+  left: 17%;
+  top: 230px;
+}
+
+.sparkTwo {
+  left: 39%;
+  top: 115px;
+
+  animation-delay: 0.5s;
+}
+
+.sparkThree {
+  right: 30%;
+  top: 165px;
+
+  animation-delay: 1s;
+}
+
+.sparkFour {
+  right: 18%;
+  bottom: 220px;
+
+  animation-delay: 1.5s;
+}
+
+.confetti {
+  position: absolute;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 25px;
+
+  border-radius: 3px;
+
+  background: linear-gradient(
+    180deg,
+    #ff67c8,
+    #7f57ff
+  );
+
+  box-shadow:
+    0 0 12px rgba(255, 93, 211, 0.45);
+
+  animation: confettiFloat 4s ease-in-out infinite;
+}
+
+.confettiOne {
+  left: 9%;
+  top: 275px;
+  transform: rotate(-35deg);
+}
+
+.confettiTwo {
+  left: 32%;
+  top: 55px;
+  transform: rotate(25deg);
+  animation-delay: 0.6s;
+}
+
+.confettiThree {
+  right: 34%;
+  top: 70px;
+  transform: rotate(40deg);
+  animation-delay: 1s;
+}
+
+.confettiFour {
+  right: 6%;
+  top: 255px;
+  transform: rotate(-30deg);
+  animation-delay: 1.4s;
+}
+
+.confettiFive {
+  left: 14%;
+  bottom: 185px;
+  transform: rotate(30deg);
+  animation-delay: 1.8s;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes giftFloat {
   0%,
   100% {
-    transform: translateY(0);
+    transform:
+      translateX(-50%)
+      translateY(0)
+      translateZ(190px);
   }
 
   50% {
-    transform: translateY(-7px);
+    transform:
+      translateX(-50%)
+      translateY(-12px)
+      translateZ(215px);
   }
 }
 
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
-  .hero {
-    min-height: auto;
+@keyframes phoneFloat {
+  0%,
+  100% {
+    transform:
+      rotate(-10deg)
+      rotateY(12deg)
+      translateZ(60px)
+      translateY(0);
   }
 
-  .navBadge {
-    display: none;
+  50% {
+    transform:
+      rotate(-6deg)
+      rotateY(17deg)
+      translateZ(85px)
+      translateY(-9px);
+  }
+}
+
+@keyframes watchFloat {
+  0%,
+  100% {
+    transform:
+      rotate(8deg)
+      rotateY(-12deg)
+      translateZ(55px)
+      translateY(0);
   }
 
-  .heroContent {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 20px;
-    padding: 65px 0 55px;
+  50% {
+    transform:
+      rotate(5deg)
+      rotateY(-17deg)
+      translateZ(85px)
+      translateY(-10px);
+  }
+}
+
+@keyframes airpodFloat {
+  0%,
+  100% {
+    transform:
+      rotate(6deg)
+      rotateY(-10deg)
+      translateZ(65px)
+      translateY(0);
   }
 
-  .heroText {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
+  50% {
+    transform:
+      rotate(3deg)
+      rotateY(-5deg)
+      translateZ(90px)
+      translateY(-8px);
+  }
+}
+
+@keyframes bagFloat {
+  0%,
+  100% {
+    transform:
+      rotate(-8deg)
+      rotateY(10deg)
+      translateZ(110px)
+      translateY(0);
   }
 
-  .eyebrow {
-    margin: 0 auto;
+  50% {
+    transform:
+      rotate(-5deg)
+      rotateY(15deg)
+      translateZ(140px)
+      translateY(-9px);
+  }
+}
+
+@keyframes voucherFloat {
+  0%,
+  100% {
+    transform:
+      rotate(7deg)
+      rotateY(-12deg)
+      translateZ(130px)
+      translateY(0);
   }
 
-  .heroText > p {
-    margin-left: auto;
-    margin-right: auto;
+  50% {
+    transform:
+      rotate(4deg)
+      rotateY(-6deg)
+      translateZ(155px)
+      translateY(-8px);
+  }
+}
+
+@keyframes coinFloatOne {
+  0%,
+  100% {
+    transform:
+      rotate(-15deg)
+      translateZ(130px)
+      translateY(0);
   }
 
-  .highlights,
-  .actions,
-  .trustText {
-    justify-content: center;
+  50% {
+    transform:
+      rotate(-5deg)
+      translateZ(160px)
+      translateY(-13px);
+  }
+}
+
+@keyframes coinFloatTwo {
+  0%,
+  100% {
+    transform:
+      rotate(18deg)
+      translateZ(140px)
+      translateY(0);
   }
 
-  .heroVisual {
-    min-height: 380px;
+  50% {
+    transform:
+      rotate(28deg)
+      translateZ(170px)
+      translateY(-11px);
+  }
+}
+
+@keyframes coinFloatThree {
+  0%,
+  100% {
+    transform:
+      rotate(-10deg)
+      translateZ(160px)
+      translateY(0);
   }
 
-  .visualCard {
-    max-width: 500px;
-    min-height: 360px;
+  50% {
+    transform:
+      rotate(5deg)
+      translateZ(185px)
+      translateY(-10px);
+  }
+}
+
+@keyframes coinFloatFour {
+  0%,
+  100% {
+    transform:
+      rotate(12deg)
+      translateZ(150px)
+      translateY(0);
   }
 
-  .visualCard img {
-    width: min(100%, 470px);
-    transform: scale(1.03);
+  50% {
+    transform:
+      rotate(20deg)
+      translateZ(180px)
+      translateY(-11px);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.8);
   }
 
-  .visualCard:hover img {
-    transform: scale(1.05);
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes confettiFloat {
+  0%,
+  100% {
+    translate: 0 0;
   }
 
-  .visualGlow {
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .navLinks {
+    gap: 16px;
+  }
+
+  .heroContainer {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .heroText h1 {
+    font-size: 50px;
+  }
+
+  .mainGift {
     width: 360px;
     height: 360px;
   }
+
+  .phone {
+    width: 160px;
+    height: 230px;
+  }
+
+  .watch {
+    width: 175px;
+    height: 205px;
+  }
+
+  .airpods {
+    width: 160px;
+    height: 140px;
+  }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 576px) {
-  .hero {
-    min-height: auto;
-  }
-
-  .navbar,
-  .heroContent {
-    width: calc(100% - 30px);
-  }
-
+@media (max-width: 850px) {
   .navbar {
-    min-height: 68px;
-    gap: 12px;
+    padding: 12px 5%;
   }
 
-  .brand {
-    gap: 9px;
+  .navLinks {
+    display: none;
   }
 
-  .brandMark {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    font-size: 12px;
+  .logo {
+    min-width: auto;
   }
 
-  .brand strong {
-    font-size: 16px;
+  .navRight {
+    min-width: auto;
   }
 
-  .brand span {
-    font-size: 7px;
-    letter-spacing: 2px;
+  .heroContainer {
+    grid-template-columns: 1fr;
   }
 
-  .navButton {
-    padding: 9px 11px;
-    font-size: 10px;
+  .heroText {
+    padding: 35px 0 0;
   }
 
-  .heroContent {
-    min-height: auto;
-    gap: 8px;
-    padding-top: 40px;
-    padding-bottom: 30px;
+  .heroText h1 {
+    font-size: 48px;
   }
 
-  .eyebrow {
-    padding: 7px 11px;
-    font-size: 9px;
+  .rewardScene {
+    height: 600px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    min-height: 1050px;
   }
 
-  .hero h1 {
-    margin-top: 19px;
-    font-size: 46px;
-    line-height: 0.99;
-    letter-spacing: -2.4px;
+  .profile > span:nth-child(2),
+  .profile svg {
+    display: none;
   }
 
-  .heroText > p {
-    margin-top: 20px;
-    font-size: 13px;
-    line-height: 1.65;
+  .heroText h1 {
+    font-size: 39px;
+    letter-spacing: -2px;
   }
 
-  .highlights {
-    justify-content: center;
-    gap: 7px;
-    margin-top: 20px;
+  .rewardScene {
+    height: 510px;
+
+    transform: scale(0.78);
+    transform-origin: top center;
+
+    margin-bottom: -80px;
   }
 
-  .highlights div {
-    padding: 8px 10px;
-    font-size: 9px;
+  .mainGift {
+    width: 330px;
+    height: 330px;
+    top: 190px;
   }
 
-  .highlights svg {
-    font-size: 13px;
+  .phone {
+    width: 125px;
+    height: 180px;
+    left: 4%;
+    top: 80px;
   }
 
-  .actions {
-    flex-direction: column;
-    gap: 9px;
-    margin-top: 24px;
+  .watch {
+    width: 140px;
+    height: 165px;
+    right: 8%;
+    top: 80px;
   }
 
-  .primaryButton,
-  .secondaryButton {
-    width: 100%;
-    min-height: 46px;
-    justify-content: center;
-  }
-
-  .trustText {
-    justify-content: center;
-    margin-top: 15px;
-    font-size: 9px;
-  }
-
-  .heroVisual {
-    min-height: 275px;
-    margin-top: 0;
-  }
-
-  .visualCard {
-    width: 100%;
-    min-height: 250px;
-  }
-
-  .visualCard img {
-    width: min(100%, 235px);
-    transform: scale(1.03);
-  }
-
-  .visualCard:hover img {
-    transform: scale(1.05);
-  }
-
-  .visualCard::before {
-    width: 210px;
-    height: 210px;
-    filter: blur(58px);
-  }
-
-  .visualGlow {
-    width: 230px;
-    height: 230px;
-    filter: blur(72px);
-  }
-
-  .floatingBadge {
+  .airpods {
+    width: 125px;
+    height: 110px;
     right: 0;
-    bottom: 8px;
-    padding: 9px 11px;
-    gap: 8px;
+    top: 275px;
   }
 
-  .floatingBadge > svg {
-    width: 30px;
-    height: 30px;
-    padding: 7px;
+  .veloopBag {
+    width: 110px;
+    height: 135px;
+    left: 2%;
+    bottom: 65px;
   }
 
-  .floatingBadge strong {
-    font-size: 9px;
+  .veloopCard {
+    width: 135px;
+    height: 65px;
+    left: 27%;
+    bottom: 42px;
   }
 
-  .floatingBadge span {
-    font-size: 8px;
+  .amazonVoucher {
+    width: 145px;
+    height: 90px;
+    right: 2%;
+    bottom: 55px;
+  }
+
+  .entryCard {
+    width: 155px;
+    right: -4%;
+    top: 400px;
+  }
+
+  .dollarCoin {
+    width: 52px;
+    height: 52px;
+    font-size: 25px;
   }
 }

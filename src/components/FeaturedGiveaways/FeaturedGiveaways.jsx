@@ -1,4 +1,12 @@
-import { FiArrowRight, FiClock, FiGift, FiUsers } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiCheckCircle,
+  FiClock,
+  FiGift,
+  FiLock,
+  FiStar,
+  FiUsers,
+} from "react-icons/fi";
 
 import styles from "./FeaturedGiveaways.module.css";
 
@@ -11,138 +19,261 @@ import voucher20Image from "../../assets/voucher-20.png";
 
 const giveaways = [
   {
+    id: "iphone-15-pro",
     rank: "1st Prize",
+    status: "LIVE NOW",
     title: "iPhone 15 Pro",
-    description: "Latest iPhone 15 Pro 128GB",
+    description: "Premium smartphone with an unforgettable experience.",
     participants: "2.3K+",
     time: "12d : 06h : 30m",
     entry: "250 VEs",
     accent: "purple",
     image: iphoneImage,
+    featured: true,
   },
   {
+    id: "apple-watch-series-9",
     rank: "2nd Prize",
+    status: "LIVE NOW",
     title: "Apple Watch Series 9",
-    description: "Latest Apple Watch Series 9",
+    description: "Smart fitness, health and everyday connectivity.",
     participants: "1.8K+",
     time: "9d : 06h : 30m",
     entry: "200 VEs",
     accent: "blue",
     image: appleWatchImage,
+    featured: true,
   },
   {
+    id: "airpods-pro-2",
     rank: "3rd Prize",
+    status: "LIVE NOW",
     title: "AirPods Pro 2",
-    description: "Active Noise Cancellation",
+    description: "Immersive sound with active noise cancellation.",
     participants: "3.1K+",
     time: "7d : 08h : 20m",
     entry: "500 SVEs",
     accent: "green",
     image: airpodsImage,
+    featured: true,
   },
   {
-    rank: "Lucky Draw",
-    title: "Amazon Gift Card",
-    description: "₹2,000 Amazon Gift Card",
+    id: "amazon-2000",
+    rank: "LUCKY REWARD",
+    status: "LIVE NOW",
+    title: "₹2,000 Amazon Voucher",
+    description: "A flexible shopping reward for your next purchase.",
     participants: "1.3K+",
     time: "5d : 02h : 15m",
     entry: "500 VEs",
     accent: "orange",
     image: amazonVoucherImage,
+    featured: true,
   },
   {
-    rank: "Special Reward",
+    id: "amazon-500",
+    rank: "SPECIAL REWARD",
+    status: "LIVE NOW",
     title: "₹500 Amazon Voucher",
-    description: "₹500 Amazon Shopping Voucher",
+    description: "A simple reward with plenty of ways to spend it.",
     participants: "980+",
     time: "6d : 04h : 40m",
     entry: "300 VEs",
-    accent: "purple",
+    accent: "pink",
     image: amazonVoucher500Image,
+    featured: false,
   },
   {
-    rank: "Special Voucher",
+    id: "amazon-20",
+    rank: "TOKEN REWARD",
+    status: "COMING SOON",
     title: "₹20 Voucher",
-    description: "₹20 Reward Voucher",
-    participants: "1.6K+",
-    time: "4d : 12h : 10m",
+    description: "A quick digital reward powered by your Tokens.",
+    participants: "Coming Soon",
+    time: "Starts Soon",
     entry: "2,000 Tokens",
-    accent: "blue",
+    accent: "cyan",
     image: voucher20Image,
+    featured: false,
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    icon: FiUsers,
+    title: "Sign up or login",
+    text: "Access your VELOOP Rewards account.",
+  },
+  {
+    number: "02",
+    icon: FiStar,
+    title: "Earn entries",
+    text: "Complete eligible activities and collect entries.",
+  },
+  {
+    number: "03",
+    icon: FiGift,
+    title: "Choose a reward",
+    text: "Select the giveaway that interests you.",
+  },
+  {
+    number: "04",
+    icon: FiCheckCircle,
+    title: "Win & claim",
+    text: "Winners are announced after the giveaway ends.",
   },
 ];
 
 function FeaturedGiveaways() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.sectionHeader}>
-          <div>
-            <span className={styles.eyebrow}>
-              <FiGift />
-              FEATURED REWARDS
-            </span>
+  const handleJoin = (giveawayId) => {
+    window.location.href = `/giveaway/${giveawayId}`;
+  };
 
-            <h2>Featured Giveaways</h2>
+  return (
+    <section className={styles.section} id="giveaways">
+      <div className={styles.container}>
+        {/* SECTION HEADER */}
+        <div className={styles.sectionHeader}>
+          <div className={styles.headingArea}>
+            <div className={styles.eyebrow}>
+              <FiGift />
+              <span>REWARD COLLECTION</span>
+            </div>
+
+            <h2>
+              Choose your next
+              <span> reward.</span>
+            </h2>
 
             <p>
-              Participate in our handpicked giveaways and win exciting rewards.
+              Explore exclusive giveaways, use your earned entries and get a
+              chance to take home something special.
             </p>
           </div>
 
           <button className={styles.viewButton}>
-            View All Giveaways
+            <span>View All Rewards</span>
             <FiArrowRight />
           </button>
         </div>
 
+        {/* FEATURED STRIP */}
+        <div className={styles.featuredStrip}>
+          <div className={styles.stripIcon}>
+            <FiStar />
+          </div>
+
+          <div className={styles.stripText}>
+            <strong>Handpicked rewards for you</strong>
+            <span>
+              New giveaways are added regularly. Pick a reward and start earning
+              entries.
+            </span>
+          </div>
+
+          <div className={styles.liveIndicator}>
+            <span></span>
+            Giveaways Live
+          </div>
+        </div>
+
+        {/* MAIN CONTENT */}
         <div className={styles.contentGrid}>
+          {/* GIVEAWAY CARDS */}
           <div className={styles.cardsGrid}>
             {giveaways.map((giveaway) => (
               <article
                 className={`${styles.card} ${styles[giveaway.accent]}`}
-                key={giveaway.title}
+                key={giveaway.id}
               >
-                <div className={styles.rank}>{giveaway.rank}</div>
+                {/* CARD TOP */}
+                <div className={styles.cardTop}>
+                  <span className={styles.rank}>
+                    <FiStar />
+                    {giveaway.rank}
+                  </span>
 
-                <div className={styles.imageArea}>
-                  <img
-                    src={giveaway.image}
-                    alt={giveaway.title}
-                    className={styles.prizeImage}
-                  />
+                  <span
+                    className={`${styles.status} ${
+                      giveaway.status === "COMING SOON" ? styles.upcoming : ""
+                    }`}
+                  >
+                    <span></span>
+                    {giveaway.status}
+                  </span>
                 </div>
 
+                {/* IMAGE */}
+                <div className={styles.imageArea}>
+                  <div className={styles.imageGlow}></div>
+
+                  <div className={styles.imageFrame}>
+                    <img
+                      src={giveaway.image}
+                      alt={giveaway.title}
+                      className={styles.prizeImage}
+                    />
+                  </div>
+
+                  <div className={styles.rewardTag}>
+                    <FiGift />
+                    Premium Reward
+                  </div>
+                </div>
+
+                {/* CONTENT */}
                 <div className={styles.cardContent}>
                   <h3>{giveaway.title}</h3>
 
                   <p>{giveaway.description}</p>
 
+                  {/* META */}
                   <div className={styles.meta}>
-                    <div>
-                      <FiUsers />
-                      <span>
-                        <strong>{giveaway.participants}</strong>
-                        Participants
+                    <div className={styles.metaItem}>
+                      <span className={styles.metaIcon}>
+                        <FiUsers />
                       </span>
+
+                      <div>
+                        <small>Participants</small>
+                        <strong>{giveaway.participants}</strong>
+                      </div>
                     </div>
 
-                    <div>
-                      <FiClock />
-                      <span>
-                        <strong>{giveaway.time}</strong>
-                        left
+                    <div className={styles.metaItem}>
+                      <span className={styles.metaIcon}>
+                        <FiClock />
                       </span>
+
+                      <div>
+                        <small>Ends in</small>
+                        <strong>{giveaway.time}</strong>
+                      </div>
                     </div>
                   </div>
 
-                  <div className={styles.entryRow}>
-                    <span>Entry Cost</span>
+                  {/* ENTRY */}
+                  <div className={styles.entryBox}>
+                    <div>
+                      <small>Entry cost</small>
+                      <span>Use your reward balance</span>
+                    </div>
+
                     <strong>{giveaway.entry}</strong>
                   </div>
 
-                  <button className={styles.joinButton}>
-                    Join Now
+                  {/* CTA */}
+                  <button
+                    className={styles.joinButton}
+                    onClick={() => handleJoin(giveaway.id)}
+                  >
+                    <span>
+                      {giveaway.status === "COMING SOON"
+                        ? "Explore Reward"
+                        : "View Giveaway"}
+                    </span>
+
                     <FiArrowRight />
                   </button>
                 </div>
@@ -150,54 +281,60 @@ function FeaturedGiveaways() {
             ))}
           </div>
 
+          {/* HOW TO PARTICIPATE */}
           <aside className={styles.howTo}>
-            <div className={styles.howHeader}>
-              <span className={styles.howIcon}>
+            <div className={styles.howTop}>
+              <div className={styles.howIcon}>
                 <FiGift />
-              </span>
-
-              <div>
-                <h3>How to Participate?</h3>
-                <p>Follow these simple steps to join and win.</p>
               </div>
+
+              <span className={styles.howLabel}>HOW IT WORKS</span>
+
+              <h3>
+                Your path to
+                <span> rewards.</span>
+              </h3>
+
+              <p>
+                Getting started is simple. Earn entries, choose your reward and
+                participate.
+              </p>
             </div>
 
             <div className={styles.steps}>
-              <div className={styles.step}>
-                <span>1</span>
-                <div>
-                  <h4>Sign Up / Login</h4>
-                  <p>Create your account or login to get started.</p>
-                </div>
-              </div>
+              {steps.map((step) => {
+                const StepIcon = step.icon;
 
-              <div className={styles.step}>
-                <span>2</span>
-                <div>
-                  <h4>Complete Tasks</h4>
-                  <p>Complete simple tasks and earn more entries.</p>
-                </div>
-              </div>
+                return (
+                  <div className={styles.step} key={step.number}>
+                    <div className={styles.stepNumber}>{step.number}</div>
 
-              <div className={styles.step}>
-                <span>3</span>
-                <div>
-                  <h4>Get Entries</h4>
-                  <p>Each task gives you entries for the giveaway.</p>
-                </div>
-              </div>
+                    <div className={styles.stepIcon}>
+                      <StepIcon />
+                    </div>
 
-              <div className={styles.step}>
-                <span>4</span>
-                <div>
-                  <h4>Win Rewards</h4>
-                  <p>Winners are selected randomly after the giveaway ends.</p>
-                </div>
+                    <div className={styles.stepContent}>
+                      <h4>{step.title}</h4>
+                      <p>{step.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className={styles.howTrust}>
+              <FiLock />
+
+              <div>
+                <strong>Fair & transparent</strong>
+                <span>
+                  Participation details and reward costs are shown clearly.
+                </span>
               </div>
             </div>
 
             <button className={styles.rulesButton}>
-              View Rules & Guidelines
+              <span>View Rules & Guidelines</span>
               <FiArrowRight />
             </button>
           </aside>
