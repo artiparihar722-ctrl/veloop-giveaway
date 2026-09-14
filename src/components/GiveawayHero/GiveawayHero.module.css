@@ -1888,3 +1888,1431 @@
     transform: scale(0.82);
   }
 }
+
+/* =========================================
+   MOBILE REWARD SCENE FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    overflow-x: hidden;
+  }
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .heroText {
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trustPoints {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  /* ===== REWARD AREA ===== */
+
+  .rewardScene {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    min-height: 700px;
+    margin-top: 10px;
+    overflow: visible;
+  }
+
+  .sceneLight {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    width: 95%;
+    height: 55%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  /* Main artwork stays large */
+  .rewardArtwork {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    max-width: none;
+    height: 650px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .rewardArtworkImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ===== BIG CENTRAL GIFT ===== */
+
+  .mainGift {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    width: 245px;
+    height: 245px;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: auto;
+  }
+
+  .mainGift img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    filter:
+      drop-shadow(0 20px 28px rgba(0, 0, 0, 0.45))
+      drop-shadow(0 0 24px rgba(178, 76, 255, 0.65));
+
+    transition:
+      transform 0.35s ease,
+      filter 0.35s ease;
+  }
+
+  .mainGift:hover img {
+    transform: translateY(-8px) scale(1.06);
+    filter:
+      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.5))
+      drop-shadow(0 0 34px rgba(205, 90, 255, 0.85));
+  }
+
+  /* Keep the glow behind the gift */
+  .giftAura {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 230px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(170, 70, 255, 0.35);
+    filter: blur(35px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* ===== ENTRY CARD ===== */
+
+  .entryCard {
+    z-index: 10;
+  }
+
+  /* Prevent entry card from covering the main gift */
+  .rewardArtwork .entryCard {
+    left: auto;
+  }
+}
+
+
+/* =========================================
+   SMALL PHONES
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .heroContainer {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .rewardScene {
+    height: 620px;
+    min-height: 620px;
+    margin-top: 0;
+  }
+
+  .rewardArtwork {
+    width: 560px;
+    height: 560px;
+  }
+
+  .mainGift {
+    width: 210px;
+    height: 210px;
+    top: 57%;
+  }
+
+  .giftAura {
+    width: 200px;
+    height: 130px;
+  }
+
+  /* Entry card should stay beside the rewards,
+     not sit over the gift */
+  .entryCard {
+    transform: scale(0.82);
+    transform-origin: center;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .trustPoints {
+    gap: 10px 14px;
+  }
+}
+/* =========================================
+   MOBILE NAVBAR FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    width: 100%;
+    height: 76px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  /* VELOOP logo */
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .logoMark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logoText strong {
+    font-size: 17px;
+  }
+
+  .logoText small {
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  /* Hide desktop navigation completely */
+  .navLinks {
+    display: none !important;
+  }
+
+  /* Right side */
+  .navRight {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Balance */
+  .balance {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 22px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .balance strong {
+    font-size: 13px;
+  }
+
+  .balance span {
+    font-size: 12px;
+  }
+
+  /* Notification */
+  .notification {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  /* Profile */
+  .profile {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .profile > span:not(.avatar),
+  .profile > svg {
+    display: none;
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    height: 70px;
+    padding: 0 14px;
+    gap: 6px;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .logoMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navRight {
+    gap: 6px;
+  }
+
+  .balance {
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .balance strong {
+    font-size: 12px;
+  }
+
+  .notification {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =====================================================
+   FINAL MOBILE RESPONSIVE FIX
+   Reward artwork + hero spacing
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .heroContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
+  .heroText {
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0 auto 24px;
+  }
+
+  .heroText h1 {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description {
+    width: 100%;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trustPoints {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+
+  /* ---------- REWARD SECTION ---------- */
+
+  .rewardScene {
+    position: relative !important;
+    width: 100% !important;
+
+    /* Don't make the reward section unnecessarily tall */
+    height: 570px !important;
+    min-height: 570px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* ---------- MAIN REWARD ARTWORK ---------- */
+
+  .rewardArtwork {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 43% !important;
+
+    width: 720px !important;
+    height: 480px !important;
+
+    max-width: none !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    z-index: 2;
+  }
+
+  .rewardArtworkImage {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+
+    display: block !important;
+  }
+
+
+  /* ---------- BIG CENTRAL GIFT ---------- */
+
+  .mainGift {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 58% !important;
+
+    width: 245px !important;
+    height: 245px !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    z-index: 20 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: auto;
+  }
+
+  .mainGift img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+
+    filter:
+      drop-shadow(0 18px 28px rgba(0, 0, 0, 0.45))
+      drop-shadow(0 0 30px rgba(180, 70, 255, 0.65));
+
+    transition: transform 0.3s ease;
+  }
+
+  /* Small 3D movement only when cursor/finger interacts */
+  .mainGift:hover img {
+    transform: translateY(-5px) scale(1.04);
+  }
+
+
+  /* ---------- GIFT GLOW ---------- */
+
+  .giftAura {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 58% !important;
+
+    width: 250px !important;
+    height: 150px !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    z-index: -1 !important;
+
+    pointer-events: none;
+  }
+
+
+  /* ---------- MOBILE ENTRY CARD ---------- */
+
+  .entryCard {
+    max-width: 170px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE — 360px to 480px
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .heroContainer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .rewardScene {
+    height: 530px !important;
+    min-height: 530px !important;
+  }
+
+  .rewardArtwork {
+    width: 650px !important;
+    height: 435px !important;
+
+    left: 50% !important;
+    top: 42% !important;
+  }
+
+  .mainGift {
+    width: 220px !important;
+    height: 220px !important;
+
+    left: 50% !important;
+    top: 58% !important;
+  }
+
+  .giftAura {
+    width: 220px !important;
+    height: 135px !important;
+  }
+
+  .entryCard {
+    max-width: 155px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONE
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+  .rewardScene {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .rewardArtwork {
+    width: 600px !important;
+    height: 400px !important;
+
+    top: 41% !important;
+  }
+
+  .mainGift {
+    width: 200px !important;
+    height: 200px !important;
+
+    top: 58% !important;
+  }
+}
+
+/* =====================================================
+   MOBILE NAVBAR + REWARD POSITION FIX
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- MOBILE NAVBAR ---------- */
+
+  .navbar {
+    width: 100%;
+    min-height: 112px;
+    padding: 12px 14px 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .logoMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText strong {
+    font-size: 16px;
+  }
+
+  .logoText small {
+    font-size: 7px;
+  }
+
+  /* TOP RIGHT */
+  .navRight {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .balance {
+    height: 38px;
+    padding: 0 10px;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .balance strong {
+    font-size: 12px;
+  }
+
+  .notification {
+    width: 38px;
+    height: 38px;
+  }
+
+  .profile {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .profile > span:not(.avatar),
+  .profile > svg {
+    display: none;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  /* ---------- NAV LINKS ---------- */
+
+  .navLinks {
+    order: 3;
+
+    display: flex !important;
+
+    width: 100%;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    justify-content: flex-start;
+
+    gap: 7px;
+
+    padding: 7px 2px 10px;
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLinks a {
+    flex: 0 0 auto;
+
+    padding: 7px 11px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    border-radius: 18px;
+  }
+
+  .navLinks .activeLink {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  /* ---------- REWARD AREA ---------- */
+
+  .rewardScene {
+    position: relative !important;
+    width: 100% !important;
+
+    height: 540px !important;
+    min-height: 540px !important;
+
+    margin-top: 0 !important;
+    overflow: visible !important;
+  }
+
+
+  /* Artwork */
+  .rewardArtwork {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 45% !important;
+
+    width: 650px !important;
+    height: 440px !important;
+
+    max-width: none !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    z-index: 2 !important;
+  }
+
+  .rewardArtworkImage {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+
+  /* ---------- YOUR ENTRIES ---------- */
+
+  .entryCard {
+    position: absolute !important;
+
+    /*
+      Keep it on the RIGHT side of the reward artwork.
+      It will no longer sit directly on top of AirPods.
+    */
+    right: 2% !important;
+    left: auto !important;
+
+    top: 61% !important;
+
+    transform: translateY(-50%) scale(0.82) !important;
+
+    z-index: 30 !important;
+
+    white-space: nowrap;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    min-height: 106px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .logoMark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navRight {
+    gap: 6px;
+  }
+
+  .balance {
+    height: 36px;
+    padding: 0 9px;
+  }
+
+  .notification {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile {
+    width: 36px;
+    height: 36px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navLinks {
+    gap: 5px;
+    padding-bottom: 9px;
+  }
+
+  .navLinks a {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+
+
+  /* Reward composition */
+  .rewardScene {
+    height: 520px !important;
+    min-height: 520px !important;
+  }
+
+  .rewardArtwork {
+    width: 620px !important;
+    height: 420px !important;
+
+    top: 44% !important;
+  }
+
+  .entryCard {
+    right: 0 !important;
+    top: 62% !important;
+
+    transform: translateY(-50%) scale(0.72) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE NAVBAR - DESKTOP STYLE ORDER
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    width: 100%;
+    min-height: 118px;
+    padding: 10px 12px 0;
+
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 48px 50px;
+
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* VELOOP LOGO */
+  .logo {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+  }
+
+  .logoMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText strong {
+    font-size: 15px;
+  }
+
+  .logoText small {
+    font-size: 7px;
+  }
+
+
+  /* BALANCE + BELL + PROFILE */
+  .navRight {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 6px;
+    margin: 0;
+
+    flex-shrink: 0;
+  }
+
+  .balance {
+    height: 38px;
+    padding: 0 9px;
+
+    white-space: nowrap;
+  }
+
+  .balance strong {
+    font-size: 12px;
+  }
+
+  .notification {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .profile {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .profile > span:not(.avatar),
+  .profile > svg {
+    display: none;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  /* =====================================================
+     NAV LINKS - SECOND ROW
+     ===================================================== */
+
+  .navLinks {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center;
+
+    gap: 7px;
+
+    overflow-x: auto !important;
+    overflow-y: hidden;
+
+    padding: 6px 2px 9px;
+
+    white-space: nowrap;
+
+    justify-content: flex-start !important;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLinks a {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 13px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    border-radius: 20px;
+  }
+
+  .navLinks .activeLink {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    min-height: 112px;
+    grid-template-rows: 46px 48px;
+
+    padding: 8px 10px 0;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .logoMark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navRight {
+    gap: 5px;
+  }
+
+  .balance {
+    height: 36px;
+    padding: 0 8px;
+  }
+
+  .notification {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile {
+    width: 36px;
+    height: 36px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navLinks {
+    gap: 5px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+  }
+
+  .navLinks a {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+}
+
+/* =========================================================
+   MOBILE FINAL FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- VELOOP LOGO ---------- */
+
+  .logo {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logoText {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .logoText strong {
+    display: block !important;
+    font-size: 14px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+  }
+
+  .logoText small {
+    display: block !important;
+    font-size: 7px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+  }
+
+
+  /* ---------- REWARD AREA ---------- */
+
+  .rewardScene {
+    position: relative !important;
+    width: 100% !important;
+    height: 560px !important;
+
+    overflow: hidden !important;
+
+    /* kisi bhi hover/cursor effect ko stop */
+    pointer-events: none;
+  }
+
+  .rewardArtwork {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: none !important;
+  }
+
+  /* Main reward artwork */
+  .rewardArtworkImage {
+    width: 100% !important;
+    max-width: 430px !important;
+    height: auto !important;
+
+    object-fit: contain;
+
+    transform: none !important;
+
+    pointer-events: none !important;
+  }
+
+
+  /* ---------- MAIN GIFT ---------- */
+
+  .mainGift {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 55% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 190px !important;
+    height: 190px !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20 !important;
+
+    pointer-events: none !important;
+  }
+
+  .mainGift img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain;
+
+    transform: none !important;
+
+    animation: none !important;
+
+    pointer-events: none !important;
+  }
+
+  .giftAura {
+    display: none !important;
+  }
+
+
+  /* Kisi reward element par hover movement nahi */
+  .rewardScene *,
+  .rewardArtwork *,
+  .mainGift * {
+    transition: none !important;
+  }
+
+  .rewardScene *:hover,
+  .rewardArtwork *:hover,
+  .mainGift *:hover {
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE - 400px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .logo {
+    gap: 7px;
+  }
+
+  .logoMark {
+    width: 38px !important;
+    height: 38px !important;
+    flex-shrink: 0;
+  }
+
+  .logoText strong {
+    font-size: 13px !important;
+  }
+
+  .logoText small {
+    font-size: 6px !important;
+    letter-spacing: 1.7px;
+  }
+
+
+  .rewardScene {
+    height: 520px !important;
+  }
+
+  .rewardArtworkImage {
+    width: 108% !important;
+    max-width: none !important;
+  }
+
+  .mainGift {
+    width: 165px !important;
+    height: 165px !important;
+
+    top: 57% !important;
+  }
+}
+
+/* =========================================================
+   MOBILE - BRING BACK MAIN VELOOP GIFT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .rewardScene {
+    position: relative !important;
+    width: 100% !important;
+    height: 430px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .rewardArtwork {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: visible !important;
+  }
+
+  .rewardArtworkImage {
+    width: 108% !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  /* ACTUAL DARK PURPLE VELOOP GIFT */
+  .mainGift {
+    display: block !important;
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 63% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    width: 125px !important;
+    height: 125px !important;
+
+    z-index: 20 !important;
+
+    pointer-events: none !important;
+  }
+
+  .mainGift img {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+
+    filter:
+      drop-shadow(0 12px 20px rgba(0, 0, 0, 0.35))
+      drop-shadow(0 0 18px rgba(168, 70, 255, 0.55)) !important;
+  }
+
+  .giftAura {
+    display: none !important;
+  }
+
+  /* Mobile par unnecessary hover movement nahi */
+  .rewardScene:hover .rewardArtwork {
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+
+/* Smaller phones */
+@media (max-width: 480px) {
+
+  .rewardScene {
+    height: 420px !important;
+  }
+
+  .rewardArtworkImage {
+    width: 112% !important;
+  }
+
+  .mainGift {
+    width: 115px !important;
+    height: 115px !important;
+
+    left: 50% !important;
+    top: 64% !important;
+  }
+}
+
+
+/* Very small phones */
+@media (max-width: 360px) {
+
+  .rewardScene {
+    height: 405px !important;
+  }
+
+  .rewardArtworkImage {
+    width: 116% !important;
+  }
+
+  .mainGift {
+    width: 105px !important;
+    height: 105px !important;
+
+    top: 64% !important;
+  }
+}
+
+/* =========================================================
+   MOBILE - GIFT SIZE & POSITION FIX ONLY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .mainGift {
+    display: block !important;
+
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 67% !important;
+
+    width: 210px !important;
+    height: 210px !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    z-index: 30 !important;
+
+    pointer-events: none !important;
+  }
+
+  .mainGift img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+
+    display: block !important;
+
+    filter:
+      drop-shadow(0 12px 20px rgba(0, 0, 0, 0.35))
+      drop-shadow(0 0 22px rgba(168, 70, 255, 0.6)) !important;
+  }
+}
+
+
+/* 400px mobile */
+@media (max-width: 480px) {
+
+  .mainGift {
+    width: 190px !important;
+    height: 190px !important;
+
+    left: 50% !important;
+    top: 68% !important;
+  }
+}
+
+
+/* Small phones */
+@media (max-width: 360px) {
+
+  .mainGift {
+    width: 175px !important;
+    height: 175px !important;
+
+    top: 68% !important;
+  }
+}
